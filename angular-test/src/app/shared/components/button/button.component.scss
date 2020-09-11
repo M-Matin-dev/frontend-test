@@ -1,0 +1,41 @@
+@mixin visible-state {
+  opacity: unset;
+  margin-bottom: unset;
+  pointer-events: unset;
+}
+
+@mixin hidden-state {
+  opacity: 0;
+  margin-bottom: -2rem;
+  pointer-events: none;
+}
+
+button {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 2rem;
+  cursor: pointer;
+
+  .default-state,
+  .hover-state{
+    height: 2rem;
+  }
+
+  .hover-state{
+    @include hidden-state;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.is-hovered {
+    .default-state {
+      @include hidden-state;
+    }
+
+    .hover-state{
+      @include visible-state;
+    }
+  }
+}
