@@ -1,4 +1,4 @@
-import {ActionReducerMap, createFeatureSelector} from '@ngrx/store';
+import { ActionReducerMap, createFeatureSelector} from '@ngrx/store';
 import * as fromPostList from './post-list.reducer';
 import {POSTS_FEATURE_NAME} from '../../../constants';
 

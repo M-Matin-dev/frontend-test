@@ -1,0 +1,11 @@
+$card-width: 230px;
+
+mat-card {
+  width: $card-width;
+  height: 325px;
+
+  img[mat-card-image] {
+    height: 180px;
+    object-fit: cover;
+  }
+}

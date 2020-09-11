@@ -1,0 +1,17 @@
+$gap: 20px;
+.post-list-container {
+  width: 100%;
+
+  .post-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: $gap;
+    //width: calc(100% - #{$gap * 2});
+    //box-sizing: border-box;
+    justify-content: center;
+
+    talos-post-card {
+      margin: $gap;
+    }
+  }
+}

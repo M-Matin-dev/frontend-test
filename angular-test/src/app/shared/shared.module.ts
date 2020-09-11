@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ButtonComponent} from './components/button/button.component';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
 const exportableDeclarations = [
   ButtonComponent,
@@ -9,6 +11,8 @@ const exportableDeclarations = [
 
 const exportableImports = [
   MatIconModule,
+  MatCardModule,
+  MatButtonModule,
 ];
 
 @NgModule({

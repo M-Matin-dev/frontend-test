@@ -7,13 +7,17 @@ import {EffectsModule} from '@ngrx/effects';
 import {postsFeatureEffects} from './store/effects';
 import {POSTS_FEATURE_NAME} from '../constants';
 import {postsFeatureReducers} from './store/reducers';
+import { PostCardComponent } from './components/post-card/post-card.component';
+import {SharedModule} from '../shared/shared.module';
 
 
 
 @NgModule({
-  declarations: [PostListComponent],
+  declarations: [PostListComponent, PostCardComponent],
   imports: [
     CommonModule,
+
+    SharedModule,
 
     StoreModule.forFeature(POSTS_FEATURE_NAME, postsFeatureReducers),
     EffectsModule.forFeature(postsFeatureEffects),
