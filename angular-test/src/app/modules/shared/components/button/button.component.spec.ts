@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ButtonComponent } from './button.component';
 import {MatIconModule} from '@angular/material/icon';
-import {ButtonContentTypes} from '../../../models';
+import {ButtonContentTypes} from '../../../../models';
 
 describe('ButtonComponent', () => {
   let component: ButtonComponent;

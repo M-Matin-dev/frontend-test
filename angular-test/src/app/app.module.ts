@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './components/header/header.component';
-import {SharedModule} from './shared/shared.module';
+import {SharedModule} from './modules/shared/shared.module';
 import {StoreModule} from '@ngrx/store';
 import {environment} from '../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';

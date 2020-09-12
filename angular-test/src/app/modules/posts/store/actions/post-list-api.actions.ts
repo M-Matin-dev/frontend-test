@@ -1,5 +1,5 @@
 import {createAction, props} from '@ngrx/store';
-import {IPost} from '../../../models/posts';
+import {IPost} from '../../../../models/posts';
 
 export const loadAll = createAction(
   '[Post List Api] load all'

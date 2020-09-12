@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {withLatestFrom, filter, mapTo} from 'rxjs/operators';
 import * as routerAction from '@ngrx/router-store';
-import {POSTS_MODULE_ROUTE} from '../../../constants';
+import {POSTS_MODULE_ROUTE} from '../../../../models/constants';
 import {PostsFacade} from '../posts.facade';
 import {RouterNavigatedAction} from '@ngrx/router-store';
 

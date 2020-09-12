@@ -1,5 +1,5 @@
 import {createEntityAdapter, EntityAdapter, EntityState} from '@ngrx/entity';
-import {IPost, ILoadState, LOAD_STATE_LOADED, LOAD_STATE_LOADING} from '../../../models';
+import {IPost, ILoadState, LOAD_STATE_LOADED, LOAD_STATE_LOADING} from '../../../../models';
 import {Action, createReducer, on} from '@ngrx/store';
 
 import * as postListApiActions from '../actions/post-list-api.actions';

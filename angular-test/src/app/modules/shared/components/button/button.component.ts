@@ -1,5 +1,5 @@
 import {Component, HostListener, Input, OnInit} from '@angular/core';
-import {ButtonContentTypes, IButtonStateProps} from '../../../models';
+import {ButtonContentTypes, IButtonStateProps} from '../../../../models';
 import { isBrowser } from 'mobile-device-detect';
 
 @Component({

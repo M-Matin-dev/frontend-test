@@ -1,0 +1,66 @@
+$card-width: 230px;
+
+mat-card {
+  width: $card-width;
+  height: 325px;
+
+  img[mat-card-image] {
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .post-description {
+    overflow: hidden;
+    position: relative;
+    line-height: 1.2em;
+    height: 5rem;
+    text-align: justify;
+    margin-right: -1em;
+    padding-right: 1em;
+
+    &:before {
+      content: '...';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      width: 1em;
+      height: 1em;
+      margin-top: 0.2em;
+      background: white;
+    }
+  }
+
+  .mat-card-actions {
+    display: flex;
+    align-items: center;
+
+    & > .tag-container {
+      flex: 2;
+      display: flex;
+      flex-wrap: wrap;
+      height: 2.3rem;
+      overflow: auto;
+      margin-right: -5px;
+
+      & > mat-chip {
+        max-width: 160px;
+        margin: 0 5px 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        outline: none;
+      }
+    }
+
+    & > button {
+      flex: 1;
+    }
+  }
+
+}

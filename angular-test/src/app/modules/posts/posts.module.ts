@@ -5,7 +5,7 @@ import {PostsRoutingModule} from './posts-routing.module';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {postsFeatureEffects} from './store/effects';
-import {POSTS_FEATURE_NAME} from '../constants';
+import {POSTS_FEATURE_NAME} from '../../models/constants';
 import {postsFeatureReducers} from './store/reducers';
 import { PostCardComponent } from './components/post-card/post-card.component';
 import {SharedModule} from '../shared/shared.module';

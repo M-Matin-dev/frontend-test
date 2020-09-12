@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {select, Store} from '@ngrx/store';
 
-import * as fromReducers from '../store/reducers';
+import * as fromReducers from './reducers';
 import * as postListSelectors from './selectors/post-list.selectors';
 import * as postListApiAction from './actions/post-list-api.actions';
 import {map} from 'rxjs/operators';

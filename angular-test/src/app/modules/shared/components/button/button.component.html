@@ -1,4 +1,4 @@
-<button aria-hidden="false" [attr.aria-label]="ariaLabel" [class.is-hovered]="isHovered">
+<div role="button" aria-hidden="false" [attr.aria-label]="ariaLabel" [class.is-hovered]="isHovered">
   <div class="default-state">
     <ng-content></ng-content>
   </div>
@@ -10,4 +10,4 @@
       <mat-icon>{{hoverState.contents}}</mat-icon>
     </div>
   </div>
-</button>
+</div>

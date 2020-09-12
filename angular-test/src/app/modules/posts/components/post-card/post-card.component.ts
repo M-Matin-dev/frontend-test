@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IPost} from '../../../models/posts';
+import {IPost} from '../../../../models/posts';
 
 @Component({
   selector: 'talos-post-card',
