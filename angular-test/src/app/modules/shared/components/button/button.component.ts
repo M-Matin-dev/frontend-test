@@ -1,4 +1,4 @@
-import {Component, HostListener, Input, OnInit} from '@angular/core';
+import {Component, HostListener, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {ButtonContentTypes, IButtonStateProps} from '../../../../models';
 import { isBrowser } from 'mobile-device-detect';
 
@@ -14,6 +14,8 @@ export class ButtonComponent implements OnInit {
 
   @Input() hoverState: IButtonStateProps;
   @Input() ariaLabel: string;
+
+  @Output() clicked = new EventEmitter<MouseEvent>();
 
   isHovered = false;
 
