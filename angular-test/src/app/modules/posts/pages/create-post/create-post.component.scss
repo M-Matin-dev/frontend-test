@@ -1,5 +1,7 @@
+@import "../../../../models/styles/variables";
+
 .create-post-container {
-  max-width: 920px;
+  max-width: $page-max-width;
   margin: auto;
   padding: 30px;
 

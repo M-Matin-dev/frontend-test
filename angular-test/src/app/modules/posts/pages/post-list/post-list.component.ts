@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PostsFacade} from '../../store/posts.facade';
+import {Router} from '@angular/router';
+import {POSTS_MODULE_ROUTE} from '../../../../models/constants';
 
 @Component({
   selector: 'talos-post-list',
@@ -8,10 +10,14 @@ import {PostsFacade} from '../../store/posts.facade';
 })
 export class PostListComponent implements OnInit {
 
-  constructor(public postsFacade: PostsFacade) { }
+  constructor(public postsFacade: PostsFacade, private router: Router) { }
 
   ngOnInit(): void {
-    console.log('list');
+  }
+
+  goToDetailPage(postId: string): void {
+    console.log({postId});
+    this.router.navigate([POSTS_MODULE_ROUTE, postId]);
   }
 
 }

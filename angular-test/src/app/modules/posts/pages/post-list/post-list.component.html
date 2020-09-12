@@ -1,5 +1,5 @@
 <div class="post-list-container">
   <div class="post-list" *ngIf="postsFacade.posts$ | async as posts">
-    <talos-post-card *ngFor="let post of posts" [post]="post"></talos-post-card>
+    <talos-post-card *ngFor="let post of posts" [post]="post" (clickedView)="goToDetailPage(post.id)"></talos-post-card>
   </div>
 </div>

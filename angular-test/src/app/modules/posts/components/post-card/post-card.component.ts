@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IPost} from '../../../../models/posts';
+import {API_BASE_URL} from '../../../../models/constants';
 
 @Component({
   selector: 'talos-post-card',
@@ -9,6 +10,7 @@ import {IPost} from '../../../../models/posts';
 export class PostCardComponent implements OnInit {
 
   @Input() post: IPost;
+  @Output() clickedView = new EventEmitter<void>();
 
   constructor() { }
 
@@ -16,7 +18,7 @@ export class PostCardComponent implements OnInit {
   }
 
   get image(): string {
-    return (this.post.photoUrl ? `http://127.0.0.1:3000/${this.post.photoUrl}` : false) || '/assets/images/placeholder.png';
+    return (this.post.photoUrl ? `${API_BASE_URL}/${this.post.photoUrl}` : false) || '/assets/images/placeholder.png';
   }
 
   get title(): string {

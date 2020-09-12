@@ -10,11 +10,12 @@ import {postsFeatureReducers} from './store/reducers';
 import { PostCardComponent } from './components/post-card/post-card.component';
 import {SharedModule} from '../shared/shared.module';
 import { CreatePostComponent } from './pages/create-post/create-post.component';
+import { PostDetailsComponent } from './pages/post-details/post-details.component';
 
 
 
 @NgModule({
-  declarations: [PostListComponent, PostCardComponent, CreatePostComponent],
+  declarations: [PostListComponent, PostCardComponent, CreatePostComponent, PostDetailsComponent],
   imports: [
     CommonModule,
 

@@ -1,0 +1,47 @@
+@import "../../../../models/styles/variables";
+
+.post-detail-container {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.post-image-container {
+  width: 100%;
+  height: 280px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.post-content-container {
+  max-width: $page-max-width;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-flow: column;
+}
+
+.post-title {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.post-description {
+  font-size: 1.2rem;
+  text-align: justify;
+  line-height: 1.2;
+  margin-bottom: 35px;
+}
+
+.chip-container {
+  mat-chip {
+    margin: 3px;
+  }
+}

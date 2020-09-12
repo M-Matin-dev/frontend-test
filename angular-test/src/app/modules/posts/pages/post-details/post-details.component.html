@@ -1,0 +1,28 @@
+<div class="post-detail-container">
+  <ng-container *ngIf="post; else loading">
+
+    <div class="post-image-container">
+      <img *ngIf="post.photoUrl; else imagePlaceholder" [src]="post.photoUrl" [alt]="post.title">
+      <ng-template #imagePlaceholder>
+        <img src="../../../../../assets/images/placeholder.png" alt="Placeholder">
+      </ng-template>
+    </div>
+
+    <div class="post-content-container">
+      <h3 class="post-title">{{post.title}}</h3>
+
+      <p class="post-description">
+        {{post.description}}
+      </p>
+
+      <div class="chip-container">
+        <mat-chip color="primary" selected disableRipple *ngFor="let tag of post.tags" [selectable]="false">{{tag}}</mat-chip>
+      </div>
+    </div>
+
+  </ng-container>
+
+  <ng-template #loading>
+    Please Wait ...
+  </ng-template>
+</div>

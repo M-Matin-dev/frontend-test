@@ -7,6 +7,6 @@
   </mat-card-content>
   <mat-card-actions>
     <div class="tag-container"><mat-chip *ngFor="let tag of tags" color="accent" selected>{{tag}}</mat-chip></div>
-    <button mat-stroked-button>View</button>
+    <button mat-stroked-button (click)="clickedView.emit()">View</button>
   </mat-card-actions>
 </mat-card>
