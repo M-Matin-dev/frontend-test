@@ -1,13 +1,15 @@
 <div role="button" aria-hidden="false" [attr.aria-label]="ariaLabel" [class.is-hovered]="isHovered" (click)="clicked.emit($event)">
-  <div class="default-state">
-    <ng-content></ng-content>
-  </div>
-  <div class="hover-state" *ngIf="isBrowser && hoverState">
-    <div class="hover-text" *ngIf="hoverState.type === buttonContentTypes.text">
-      {{hoverState.contents}}
+  <div class="button-animation">
+    <div class="default-state">
+      <ng-content></ng-content>
     </div>
-    <div class="hover-icon" *ngIf="hoverState.type === buttonContentTypes.matIcon">
-      <mat-icon>{{hoverState.contents}}</mat-icon>
+    <div class="hover-state" *ngIf="isBrowser && hoverState">
+      <div class="hover-text" *ngIf="hoverState.type === buttonContentTypes.text">
+        {{hoverState.contents}}
+      </div>
+      <div class="hover-icon" *ngIf="hoverState.type === buttonContentTypes.matIcon">
+        <mat-icon>{{hoverState.contents}}</mat-icon>
+      </div>
     </div>
   </div>
 </div>

@@ -1,14 +1,14 @@
 @mixin visible-state {
   opacity: unset;
-  margin-bottom: unset;
   pointer-events: unset;
 }
 
 @mixin hidden-state {
   opacity: 0;
-  margin-bottom: -2rem;
   pointer-events: none;
 }
+
+$transition-default: 0.2s ease-out;
 
 div[role="button"] {
   display: flex;
@@ -19,18 +19,32 @@ div[role="button"] {
 
   font-size: 0.8rem;
 
-  //background-color: #4CAF50; /* Green */
   border: solid 1px rgba(0, 0, 0, 0.2);
   padding: 0.1rem 0.4rem;
   text-align: center;
   text-decoration: none;
+  overflow: hidden;
+
+  .button-animation {
+    height: 200%;
+    display: flex;
+    flex-flow: column;
+    justify-content: stretch;
+
+    transition: transform $transition-default;
+  }
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.05);
+
+    .button-animation {
+      transform: translateY(-50%);
+    }
   }
 
   .default-state,
   .hover-state{
+    transition: opacity $transition-default;
     display: flex;
     justify-content: center;
     align-items: center;
