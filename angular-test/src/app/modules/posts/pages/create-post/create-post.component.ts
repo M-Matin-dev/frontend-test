@@ -1,7 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {PostsFacade} from '../../store/posts.facade';
-import {PostsService} from '../../services/posts.service';
 import {ToastrService} from 'ngx-toastr';
 
 enum FormFields {
@@ -31,6 +30,15 @@ export class CreatePostComponent implements OnInit {
     [FormFields.tag]: [''],
   });
 
+  isFieldInvalid(fieldName: FormFields): boolean {
+    const field = this.creationFormOfPost.get(fieldName);
+    return field.touched && field.invalid;
+  }
+
+  invalidFieldErrors(fieldName: FormFields): string {
+    return Object.keys(this.creationFormOfPost.get(fieldName).errors).pop();
+  }
+
   get tags(): string[] {
     return Array.from(this.tagsSet);
   }
@@ -46,11 +54,12 @@ export class CreatePostComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addTag(): void {
+  addTag(evt: Event): void {
     const tagControl = this.creationFormOfPost.get(FormFields.tag);
     this.tagsSet.add(tagControl.value);
     tagControl.reset();
     this.tagElem.nativeElement.focus();
+    evt.preventDefault();
   }
 
   removeTag(tag: string): void {
@@ -82,4 +91,9 @@ export class CreatePostComponent implements OnInit {
     });
   }
 
+  addTagOnEnter(evt: KeyboardEvent): void {
+    if (evt.key === 'Enter') {
+      this.addTag(evt);
+    }
+  }
 }

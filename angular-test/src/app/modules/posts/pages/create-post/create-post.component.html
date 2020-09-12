@@ -1,25 +1,88 @@
 <div class="create-post-container">
   <form [formGroup]="creationFormOfPost">
 
-    <input [formControlName]="formFields.title" placeholder="Title">
-    <textarea [formControlName]="formFields.description" placeholder="Description"></textarea>
-    <input #tagElem [formControlName]="formFields.tag" placeholder="Tag">
+    <div class="create-form">
 
-    <button [disabled]="!tagElem.value.trim().length" (click)="addTag()" >Add Tags</button>
-    <div>
-      <mat-chip *ngFor="let tag of tags" [selectable]="false" removable (removed)="removeTag(tag)">
-        {{tag}}
-        <mat-icon matChipRemove>cancel</mat-icon>
-      </mat-chip>
+      <div class="form-column">
+
+        <div class="form-start">
+
+          <div class="top-fields">
+
+            <div class="form-item">
+              <label for="title">Title</label>
+              <input type="text" id="title" placeholder="Title" [formControlName]="formFields.title">
+              <mat-error *ngIf="isFieldInvalid(formFields.title)">{{invalidFieldErrors(formFields.title)}}</mat-error>
+            </div>
+
+            <div class="form-item">
+              <label for="description">Description</label>
+              <textarea rows="9" id="description" placeholder="Description"
+                        [formControlName]="formFields.description"></textarea>
+              <mat-error
+                *ngIf="isFieldInvalid(formFields.description)">{{invalidFieldErrors(formFields.description)}}</mat-error>
+            </div>
+
+          </div>
+
+          <div class="top-picture">
+
+            <div class="form-item">
+
+                <div class="image-input">
+                  <label for="file-input">Description</label>
+                  <input #fileInputElem id="file-input" type="file" accept="image/*" (change)="showPreview($event)"/>
+                  <button type="button" class="add-image-button" mat-raised-button color="basic" (click)="fileInputElem.click()">Add
+                    Image
+                  </button>
+                </div>
+
+              <div class="image-preview">
+                <img *ngIf="imageURL && imageURL !== ''" [src]="imageURL" [alt]="creationFormOfPost.value.name">
+                <img *ngIf="!imageURL || imageURL === ''" [src]="'assets/images/placeholder.png'"
+                     [alt]="creationFormOfPost.value.name">
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="form-end">
+
+          <div class="form-item">
+            <label for="tag">Tags</label>
+              <div class="add-tag-group">
+                <input type="text" #tagElem id="tag" placeholder="Tag" [formControlName]="formFields.tag"
+                       (keypress)="addTagOnEnter($event)">
+                <button type="button" class="add-tag-button" mat-raised-button color="basic" [disabled]="!tagElem.value.trim().length"
+                        (click)="addTag($event)">Add Tags
+                </button>
+              </div>
+            <div class="chip-container">
+              <mat-chip color="primary" selected disableRipple *ngFor="let tag of tags" [selectable]="false" removable
+                        (removed)="removeTag(tag)">
+                {{tag}}
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <input type="file" accept="image/*" (change)="showPreview($event)" />
-
-    <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
-      <img [src]="imageURL" [alt]="creationFormOfPost.value.name">
-    </div>
-
-    <button type="submit" [disabled]="creationFormOfPost.invalid" (click)="submitForm()">Submit</button>
+    <button
+      type="submit"
+      [disabled]="creationFormOfPost.invalid"
+      mat-raised-button
+      color="primary"
+      (click)="submitForm()">
+      Submit
+    </button>
 
   </form>
 </div>

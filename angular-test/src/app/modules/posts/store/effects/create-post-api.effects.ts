@@ -47,7 +47,7 @@ export class CreatePostApiEffects {
       this.actions$.pipe(
         ofType(createPostApiActions.createPostSuccess),
         tap(() => {
-          this.toastr.success(MESSAGES.success.createPost.create, MESSAGES.errors.default, {timeOut: 5000});
+          this.toastr.success(MESSAGES.success.createPost.create, MESSAGES.success.default, {timeOut: 5000});
           this.router.navigate([POSTS_MODULE_ROUTE]);
         }),
       ),

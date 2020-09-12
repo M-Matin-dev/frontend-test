@@ -1,0 +1,131 @@
+.create-post-container {
+  max-width: 920px;
+  margin: auto;
+  padding: 30px;
+
+  .create-form{
+
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+
+    .form-start {
+      display: flex;
+
+      .top-fields {
+        flex: 7;
+      }
+
+      .top-picture {
+        flex: 5;
+        display: flex;
+        flex-flow: column;
+        justify-content: stretch;
+        align-items: stretch;
+
+        .form-item {
+          height: 100%;
+        }
+      }
+    }
+
+    .image-input {
+      display: flex;
+      justify-content: space-between;
+
+      label {
+        width: 30%;
+      }
+
+      input {
+        display: none;
+      }
+
+      .add-image-button {
+        width: 150px;
+        line-height: 1;
+      }
+    }
+
+    .image-preview {
+      width: 100%;
+      height: 100%;
+      padding: 10px 0 20px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .form-end {
+      //flex: 1;
+    }
+
+    .form-column {
+      position: relative;
+      display: flex;
+      flex-flow: column;
+      align-items: stretch;
+
+      .form-item {
+        position: relative;
+        display: flex;
+        flex-flow: column;
+        margin: 10px 10px 5px 10px;
+
+        label {
+          width: 100%;
+          font-size: 1.2rem;
+        }
+
+        input[type=text],
+        textarea {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0 21px;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+
+          &:focus {
+            outline: none;
+            border-color: #A5A5A5;
+          }
+        }
+
+        textarea {
+          resize: none;
+        }
+
+        mat-error {
+          position: absolute;
+          bottom: 0;
+        }
+
+        .add-tag-group {
+          display: flex;
+          width: 70%;
+        }
+
+        .add-tag-button {
+          width: 150px;
+          margin: 8px 10px 22px 10px;
+        }
+
+        .chip-container {
+          mat-chip {
+            margin: 3px;
+          }
+        }
+      }
+    }
+  }
+}
+
+button[type="submit"] {
+  width: 100%;
+  margin: 30px 0;
+}

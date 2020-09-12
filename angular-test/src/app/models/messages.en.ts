@@ -7,6 +7,7 @@ export const MESSAGES = {
     }
   },
   success: {
+    default: 'Success',
     createPost: {
       create: 'Post created successfully!',
     }
