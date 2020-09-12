@@ -13,7 +13,7 @@
         <a routerLink="/posts">Posts</a>
       </div>
       <div class="add-button-container">
-        <talos-button [hoverState]="hoverStateOfAddButton"><mat-icon>add</mat-icon></talos-button>
+        <talos-button (clicked)="navigateToCreatePost()" [hoverState]="hoverStateOfAddButton"><mat-icon>add</mat-icon></talos-button>
       </div>
     </div>
   </mat-toolbar-row>
@@ -23,7 +23,7 @@
         <a routerLink="/posts">Posts</a>
       </div>
       <div class="add-button-container">
-        <talos-button [hoverState]="hoverStateOfAddButton"><mat-icon>add</mat-icon></talos-button>
+        <talos-button (clicked)="navigateToCreatePost()" [hoverState]="hoverStateOfAddButton"><mat-icon>add</mat-icon></talos-button>
       </div>
     </div>
   </mat-toolbar-row>

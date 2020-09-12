@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ButtonContentTypes, IButtonStateProps} from '../../models';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'talos-header',
@@ -15,9 +16,12 @@ export class HeaderComponent implements OnInit {
 
   @Input() title = 'Talos technical test';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  navigateToCreatePost(): void {
+    this.router.navigate(['posts/create']);
+  }
 }

@@ -9,11 +9,12 @@ import {POSTS_FEATURE_NAME} from '../../models/constants';
 import {postsFeatureReducers} from './store/reducers';
 import { PostCardComponent } from './components/post-card/post-card.component';
 import {SharedModule} from '../shared/shared.module';
+import { CreatePostComponent } from './pages/create-post/create-post.component';
 
 
 
 @NgModule({
-  declarations: [PostListComponent, PostCardComponent],
+  declarations: [PostListComponent, PostCardComponent, CreatePostComponent],
   imports: [
     CommonModule,
 
