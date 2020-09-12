@@ -1,5 +1,7 @@
 <mat-card *ngIf="post">
-  <img mat-card-image [src]="image" [alt]="title">
+  <div mat-card-image>
+    <img mat-card-image [src]="image" [alt]="title">
+  </div>
   <mat-card-content>
     <div class="post-description">{{description}}</div>
   </mat-card-content>

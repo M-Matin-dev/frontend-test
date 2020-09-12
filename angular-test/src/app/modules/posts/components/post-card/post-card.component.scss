@@ -4,9 +4,24 @@ mat-card {
   width: $card-width;
   height: 325px;
 
-  img[mat-card-image] {
+  div[mat-card-image] {
     height: 180px;
-    object-fit: cover;
+    overflow: hidden;
+
+    img[mat-card-image] {
+      transition: transform 0.2s ease-out;
+      margin-top: 0;
+      height: 180px;
+      object-fit: cover;
+    }
+  }
+
+  &:hover {
+    div[mat-card-image] {
+      img[mat-card-image] {
+        transform: scale(1.2);
+      }
+    }
   }
 
   .post-description {
