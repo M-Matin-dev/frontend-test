@@ -1,3 +1,9 @@
+@import "../../models/styles/variables";
+
+mat-toolbar {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.15);
+}
+
 .header-spacer {
   flex: 1 1 auto;
 }
@@ -60,7 +66,7 @@
   }
 }
 
-@media screen and (min-width: 540px) {
+@media screen and (min-width: $md-breakpoint-width) {
 
   .header-second-row {
 
@@ -78,7 +84,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $lg-breakpoint-width) {
   .header-first-row {
     display: none;
   }
