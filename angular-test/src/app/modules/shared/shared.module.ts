@@ -8,6 +8,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import {ToastrModule} from 'ngx-toastr';
 
 const exportableDeclarations = [
   ButtonComponent,
@@ -30,9 +31,11 @@ const exportableImports = [
   ],
   imports: [
     CommonModule,
+    ToastrModule.forRoot(),
     ...exportableImports,
   ],
   exports: [
+    ToastrModule,
     ...exportableDeclarations,
     ...exportableImports,
   ]

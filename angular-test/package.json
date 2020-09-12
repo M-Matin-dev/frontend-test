@@ -29,6 +29,7 @@
     "@ngrx/store-devtools": "^10.0.0",
     "hammerjs": "^2.0.8",
     "mobile-device-detect": "^0.4.3",
+    "ngx-toastr": "^13.0.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

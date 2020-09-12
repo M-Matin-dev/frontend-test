@@ -3,6 +3,7 @@ import {IPost, ILoadState, LOAD_STATE_LOADED, LOAD_STATE_LOADING} from '../../..
 import {Action, createReducer, on} from '@ngrx/store';
 
 import * as postListApiActions from '../actions/post-list-api.actions';
+import * as createPostApiActions from '../actions/create-post-api.actions';
 
 export interface State extends EntityState<IPost>, ILoadState {
   initialListLoad: boolean;
@@ -22,6 +23,9 @@ export const postListReducer = createReducer(
     ({...adapter.setAll(posts, state), ...LOAD_STATE_LOADED, initialListLoad: true})),
   on(postListApiActions.loadAllFail, (state, {error}) =>
     ({...state, ...LOAD_STATE_LOADED, loadError: error})),
+
+  on(createPostApiActions.createPostSuccess, (state, {post}) =>
+    ({...adapter.addOne(post, state), ...LOAD_STATE_LOADED})),
 );
 
 export function reducer(state: State | undefined, action: Action): State {

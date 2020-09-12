@@ -1,31 +1,11 @@
 <div class="create-post-container">
   <form [formGroup]="creationFormOfPost">
 
-    <!--    <mat-form-field appearance="fill">-->
-    <!--      <mat-label>Title</mat-label>-->
-    <!--      <input matInput formControlName="title">-->
-    <!--    </mat-form-field>-->
+    <input [formControlName]="formFields.title" placeholder="Title">
+    <textarea [formControlName]="formFields.description" placeholder="Description"></textarea>
+    <input #tagElem [formControlName]="formFields.tag" placeholder="Tag">
 
-    <!--    <br>-->
-
-    <!--    <mat-form-field appearance="fill">-->
-    <!--      <mat-label>Description</mat-label>-->
-    <!--      <textarea matInput formControlName="description"></textarea>-->
-    <!--    </mat-form-field>-->
-
-    <!--    <br>-->
-
-    <!--    <mat-form-field appearance="fill">-->
-    <!--      <mat-label>Tags</mat-label>-->
-    <!--      <input matInput formControlName="tag">-->
-    <!--    </mat-form-field>-->
-
-
-    <input formControlName="title" placeholder="Title">
-    <textarea formControlName="description" placeholder="Description"></textarea>
-    <input #tagElem formControlName="tag" placeholder="Tag">
-
-    <button (click)="addTag()">Add Tags</button>
+    <button [disabled]="!tagElem.value.trim().length" (click)="addTag()" >Add Tags</button>
     <div>
       <mat-chip *ngFor="let tag of tags" [selectable]="false" removable (removed)="removeTag(tag)">
         {{tag}}
@@ -39,7 +19,7 @@
       <img [src]="imageURL" [alt]="creationFormOfPost.value.name">
     </div>
 
-    <button type="submit" [disabled]="creationFormOfPost.invalid">Submit</button>
+    <button type="submit" [disabled]="creationFormOfPost.invalid" (click)="submitForm()">Submit</button>
 
   </form>
 </div>

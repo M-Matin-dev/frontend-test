@@ -4,7 +4,9 @@ import {select, Store} from '@ngrx/store';
 import * as fromReducers from './reducers';
 import * as postListSelectors from './selectors/post-list.selectors';
 import * as postListApiAction from './actions/post-list-api.actions';
+import * as createPostApiAction from './actions/create-post-api.actions';
 import {map} from 'rxjs/operators';
+import {ICreatePost} from '../../../models/posts';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +26,10 @@ export class PostsFacade {
 
   loadPosts(): void {
     this.store.dispatch(postListApiAction.loadAll());
+  }
+
+  createPost({post, photo}: {post: ICreatePost, photo: File}): void {
+    this.store.dispatch(createPostApiAction.createPost({post, photo}));
   }
 
 }
