@@ -1,1 +1,45 @@
-<p>create-post works!</p>
+<div class="create-post-container">
+  <form [formGroup]="creationFormOfPost">
+
+    <!--    <mat-form-field appearance="fill">-->
+    <!--      <mat-label>Title</mat-label>-->
+    <!--      <input matInput formControlName="title">-->
+    <!--    </mat-form-field>-->
+
+    <!--    <br>-->
+
+    <!--    <mat-form-field appearance="fill">-->
+    <!--      <mat-label>Description</mat-label>-->
+    <!--      <textarea matInput formControlName="description"></textarea>-->
+    <!--    </mat-form-field>-->
+
+    <!--    <br>-->
+
+    <!--    <mat-form-field appearance="fill">-->
+    <!--      <mat-label>Tags</mat-label>-->
+    <!--      <input matInput formControlName="tag">-->
+    <!--    </mat-form-field>-->
+
+
+    <input formControlName="title" placeholder="Title">
+    <textarea formControlName="description" placeholder="Description"></textarea>
+    <input #tagElem formControlName="tag" placeholder="Tag">
+
+    <button (click)="addTag()">Add Tags</button>
+    <div>
+      <mat-chip *ngFor="let tag of tags" [selectable]="false" removable (removed)="removeTag(tag)">
+        {{tag}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+    </div>
+
+    <input type="file" accept="image/*" (change)="showPreview($event)" />
+
+    <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
+      <img [src]="imageURL" [alt]="creationFormOfPost.value.name">
+    </div>
+
+    <button type="submit" [disabled]="creationFormOfPost.invalid">Submit</button>
+
+  </form>
+</div>

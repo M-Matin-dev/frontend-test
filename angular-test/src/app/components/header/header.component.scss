@@ -2,6 +2,12 @@
   flex: 1 1 auto;
 }
 
+.is-in-create-post-page {
+  .add-button-container {
+    display: none;
+  }
+}
+
 .header-actions {
   display: flex;
   align-items: center;

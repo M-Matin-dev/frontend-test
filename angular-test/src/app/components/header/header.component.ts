@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ButtonContentTypes, IButtonStateProps} from '../../models';
-import {Router} from '@angular/router';
+import {ActivatedRoute, ActivatedRouteSnapshot, NavigationEnd, Router, RouterEvent} from '@angular/router';
+import {fromEvent, Observable} from 'rxjs';
+import {filter, map, mapTo, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'talos-header',
@@ -14,9 +16,17 @@ export class HeaderComponent implements OnInit {
     contents: 'Add new post',
   };
 
+  readonly isInCreatePostPage: Observable<boolean>;
+
   @Input() title = 'Talos technical test';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    this.isInCreatePostPage = this.router.events.pipe(
+      filter((navigationEvent: RouterEvent) => navigationEvent instanceof NavigationEnd),
+      map((navigationEndEvent: NavigationEnd) => navigationEndEvent.url === '/posts/create'),
+      tap(result => console.log({result}))
+    );
+  }
 
   ngOnInit(): void {
   }

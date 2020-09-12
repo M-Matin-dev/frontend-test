@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar [class.is-in-create-post-page]="isInCreatePostPage | async">
   <mat-toolbar-row class="header-first-row">
     <div class="header-title">{{title}}</div>
   </mat-toolbar-row>

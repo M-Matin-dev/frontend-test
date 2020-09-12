@@ -17,12 +17,14 @@ body {
   min-height: 32px;
   height: 1px;
 }
+
 .mat-chip {
   position: relative;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   transform: translateZ(0);
   border: none;
+  outline: none;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
