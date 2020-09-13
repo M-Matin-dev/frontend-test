@@ -1,4 +1,11 @@
-<div role="button" aria-hidden="false" [attr.aria-label]="ariaLabel" [class.is-hovered]="isHovered" (click)="clicked.emit($event)">
+<div
+  role="button"
+  aria-hidden="false"
+  [attr.aria-label]="ariaLabel"
+  [class.is-hovered]="isHovered"
+  (click)="clicked.emit($event)"
+  [attr.testId]="'button'">
+
   <div class="button-animation">
     <div class="default-state">
       <ng-content></ng-content>
@@ -12,4 +19,5 @@
       </div>
     </div>
   </div>
+
 </div>

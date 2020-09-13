@@ -16,7 +16,7 @@ describe('ButtonComponent', () => {
   };
 
   const getButtonElem = (): HTMLButtonElement => {
-    return fixture.nativeElement.querySelector('button');
+    return fixture.nativeElement.querySelector(`[testId="button"]`);
   };
 
   beforeEach(async(() => {
