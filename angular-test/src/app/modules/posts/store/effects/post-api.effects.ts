@@ -9,19 +9,16 @@ import {of} from 'rxjs';
 @Injectable()
 export class PostsApiEffects {
 
-  constructor(
-    private actions$: Actions,
-    private postsService: PostsService
-  ) {
-  }
-
   loadPosts$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(postListApiActions.loadAll),
         switchMap(() => this.postsService.getPosts()),
         map(posts => postListApiActions.loadAllSuccess({posts}) ),
-        catchError((err) => of( postListApiActions.loadAllFail(err) ))
+        catchError((err) => of( postListApiActions.loadAllFail(err)))
       )
   );
+
+  constructor(private actions$: Actions, public postsService: PostsService) {
+  }
 }
