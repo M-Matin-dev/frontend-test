@@ -5,7 +5,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {ButtonContentTypes} from '../../../../models';
 import {TestUtil} from '../../../../utils/test/test-util';
 
-fdescribe('ButtonComponent', () => {
+describe('ButtonComponent', () => {
   let testUtil: TestUtil<ButtonComponent>;
 
   const addHoverState = () => {

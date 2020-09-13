@@ -23,7 +23,7 @@ export class PostsRouterEffects {
       )
   );
 
-  constructor(private actions$: Actions, private postsFacade: PostsFacade) {
+  constructor(private actions$: Actions, public postsFacade: PostsFacade) {
   }
 
 }
