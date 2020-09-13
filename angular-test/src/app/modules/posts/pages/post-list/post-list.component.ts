@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PostsFacade} from '../../store/posts.facade';
 import {Router} from '@angular/router';
-import {POSTS_MODULE_ROUTE} from '../../../../models/constants';
+import {MODULE_CONSTANTS} from '../../../../contstants/module-constants';
 
 @Component({
   selector: 'talos-post-list',
@@ -17,7 +17,7 @@ export class PostListComponent implements OnInit {
 
   goToDetailPage(postId: string): void {
     console.log({postId});
-    this.router.navigate([POSTS_MODULE_ROUTE, postId]);
+    this.router.navigate([MODULE_CONSTANTS.Post.basePath, postId]);
   }
 
 }

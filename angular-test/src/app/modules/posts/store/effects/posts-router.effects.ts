@@ -2,11 +2,11 @@ import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {withLatestFrom, filter, mapTo} from 'rxjs/operators';
 import * as routerAction from '@ngrx/router-store';
-import {POSTS_MODULE_ROUTE} from '../../../../models/constants';
 import {PostsFacade} from '../posts.facade';
 import {RouterNavigatedAction} from '@ngrx/router-store';
 
 import * as PostsApiActions from '../actions/post-list-api.actions';
+import {MODULE_CONSTANTS} from '../../../../contstants/module-constants';
 
 @Injectable()
 export class PostsRouterEffects {
@@ -17,7 +17,7 @@ export class PostsRouterEffects {
         ofType(routerAction.ROUTER_NAVIGATED),
         withLatestFrom(this.postsFacade.initialListLoad$),
         filter( ([navigationAction, initialListLoad]) =>
-          !initialListLoad && (navigationAction as RouterNavigatedAction).payload.routerState.url === (`/${POSTS_MODULE_ROUTE}`)
+          !initialListLoad && (navigationAction as RouterNavigatedAction).payload.routerState.url === (`/${MODULE_CONSTANTS.Post.basePath}`)
         ),
         mapTo(PostsApiActions.loadAll()),
       )

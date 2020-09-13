@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ButtonContentTypes, IButtonStateProps} from '../../models';
+import {ButtonContentTypes, IButtonStateProps} from '../../../../models';
 import {NavigationEnd, Router, RouterEvent} from '@angular/router';
 import {Observable} from 'rxjs';
 import {filter, map} from 'rxjs/operators';

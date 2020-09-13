@@ -5,12 +5,12 @@ import {PostsRoutingModule} from './posts-routing.module';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {postsFeatureEffects} from './store/effects';
-import {POSTS_FEATURE_NAME} from '../../models/constants';
 import {postsFeatureReducers} from './store/reducers';
 import { PostCardComponent } from './components/post-card/post-card.component';
 import {SharedModule} from '../shared/shared.module';
 import { CreatePostComponent } from './pages/create-post/create-post.component';
 import { PostDetailsComponent } from './pages/post-details/post-details.component';
+import {MODULE_CONSTANTS} from '../../contstants/module-constants';
 
 
 
@@ -21,7 +21,7 @@ import { PostDetailsComponent } from './pages/post-details/post-details.componen
 
     SharedModule,
 
-    StoreModule.forFeature(POSTS_FEATURE_NAME, postsFeatureReducers),
+    StoreModule.forFeature(MODULE_CONSTANTS.Post.storeName, postsFeatureReducers),
     EffectsModule.forFeature(postsFeatureEffects),
 
     PostsRoutingModule

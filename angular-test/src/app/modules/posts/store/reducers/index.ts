@@ -1,6 +1,6 @@
 import { ActionReducerMap, createFeatureSelector} from '@ngrx/store';
 import * as fromPostList from './post-list.reducer';
-import {POSTS_FEATURE_NAME} from '../../../../models/constants';
+import {MODULE_CONSTANTS} from '../../../../contstants/module-constants';
 
 export {fromPostList};
 
@@ -12,4 +12,4 @@ export const postsFeatureReducers: ActionReducerMap<PostsState> = {
   postList: fromPostList.reducer,
 };
 
-export const getPostsState = createFeatureSelector<PostsState>(POSTS_FEATURE_NAME);
+export const getPostsState = createFeatureSelector<PostsState>(MODULE_CONSTANTS.Post.storeName);

@@ -4,7 +4,7 @@ import {catchError, filter, map} from 'rxjs/operators';
 import {of, Subscription} from 'rxjs';
 import {IPost} from '../../../../models/posts';
 import {PostsService} from '../../services/posts.service';
-import {API_BASE_URL} from '../../../../models/constants';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
   selector: 'talos-post-details',
@@ -35,7 +35,7 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
           return of(null);
         }),
         filter(post => !!post),
-        map((post: IPost) => ({...post, photoUrl: post.photoUrl ? API_BASE_URL + '/' + post.photoUrl : null}))
+        map((post: IPost) => ({...post, photoUrl: post.photoUrl ? environment.apiBaseUrl + '/' + post.photoUrl : null}))
       )
       .subscribe(post => this.loadPostSuccess(post));
   }

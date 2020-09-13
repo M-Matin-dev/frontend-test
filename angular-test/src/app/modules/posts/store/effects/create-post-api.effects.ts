@@ -6,9 +6,9 @@ import {catchError, map, switchMap, tap} from 'rxjs/operators';
 import {PostsService} from '../../services/posts.service';
 import {of} from 'rxjs';
 import {ToastrService} from 'ngx-toastr';
-import {MESSAGES} from '../../../../models/messages.en';
+import {MESSAGES} from '../../../../contstants/messages.en';
 import {Router} from '@angular/router';
-import {POSTS_MODULE_ROUTE} from '../../../../models/constants';
+import {MODULE_CONSTANTS} from '../../../../contstants/module-constants';
 
 @Injectable()
 export class CreatePostApiEffects {
@@ -48,7 +48,7 @@ export class CreatePostApiEffects {
         ofType(createPostApiActions.createPostSuccess),
         tap(() => {
           this.toastr.success(MESSAGES.success.createPost.create, MESSAGES.success.default, {timeOut: 5000});
-          this.router.navigate([POSTS_MODULE_ROUTE]);
+          this.router.navigate([MODULE_CONSTANTS.Post.basePath]);
         }),
       ),
     {dispatch: false}

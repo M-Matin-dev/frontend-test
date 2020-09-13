@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ICreatePost, IPost} from '../../../models/posts';
 import {Observable} from 'rxjs';
-import {API_BASE_URL} from '../../../models/constants';
+import {environment} from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
 
-  private readonly API_URL = `${API_BASE_URL}/posts`;
+  private readonly API_URL = `${environment.apiBaseUrl}/posts`;
 
   constructor(private http: HttpClient) {}
 

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IPost} from '../../../../models/posts';
-import {API_BASE_URL} from '../../../../models/constants';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
   selector: 'talos-post-card',
@@ -18,7 +18,7 @@ export class PostCardComponent implements OnInit {
   }
 
   get image(): string {
-    return (this.post.photoUrl ? `${API_BASE_URL}/${this.post.photoUrl}` : false) || '/assets/images/placeholder.png';
+    return (this.post.photoUrl ? `${environment.apiBaseUrl}/${this.post.photoUrl}` : false) || '/assets/images/placeholder.png';
   }
 
   get title(): string {
